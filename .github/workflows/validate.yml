@@ -1,0 +1,39 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
+
+jobs:
+  hassfest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: home-assistant/actions/hassfest@master
+
+  hacs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hacs/action@main
+        with:
+          category: integration
+
+  selftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run tools/axis.py selftest
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: >
+          uv run --no-project --python 3.13
+          --with pytest-homeassistant-custom-component,bleak,bleak-retry-connector,bluetooth-adapters,bluetooth-auto-recovery,bluetooth-data-tools,dbus-fast,habluetooth,aiousbwatcher,serialx,aiohasupervisor
+          python -m pytest tests -q -o asyncio_mode=auto

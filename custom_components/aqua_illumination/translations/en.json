@@ -1,0 +1,25 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Aqua Illumination device",
+        "description": "Force-close the myAI app on every phone first. The device accepts one Bluetooth client at a time.",
+        "data": { "address": "Device" }
+      },
+      "untested": {
+        "title": "Untested device",
+        "description": "This device reports model **{model}**, firmware **{firmware}**, which has not been tested with this integration. Its buttons send commands verified only on an Axis 40 pump. On other hardware they may do nothing, or something unexpected, to equipment running a live tank.",
+        "data": { "accept": "I understand this device is untested and accept the risk" }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect. Close the myAI app on every phone and try again.",
+      "must_accept": "Tick the box to add an untested device."
+    },
+    "abort": {
+      "already_configured": "This device is already configured.",
+      "no_devices_found": "No device found. Close the myAI app on every phone and make sure a Bluetooth adapter or proxy is in range."
+    }
+  }
+}
