@@ -21,7 +21,7 @@ from homeassistant.helpers.update_coordinator import (
 from .protocol import DEV_INFO, Axis
 
 _LOGGER = logging.getLogger(__name__)
-DOMAIN = "aqua_illumination"
+DOMAIN = "aqua_illumination_ble"
 PLATFORMS = [Platform.BUTTON, Platform.SENSOR]
 ERRORS = (BleakError, TimeoutError, ValueError, RuntimeError)
 # (model string, firmware major.minor) verified on hardware. The Axis 40 reports "Nero 5".

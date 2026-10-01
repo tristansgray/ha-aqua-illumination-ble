@@ -1,6 +1,6 @@
 {
-  "domain": "aqua_illumination",
-  "name": "Aqua Illumination",
+  "domain": "aqua_illumination_ble",
+  "name": "Aqua Illumination (Bluetooth)",
   "bluetooth": [
     {
       "local_name": "MOBIUS",
@@ -18,10 +18,10 @@
   "dependencies": [
     "bluetooth_adapters"
   ],
-  "documentation": "https://github.com/tristansgray/ha-aqua-illumination",
+  "documentation": "https://github.com/tristansgray/ha-aqua-illumination-ble",
   "integration_type": "device",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/tristansgray/ha-aqua-illumination/issues",
+  "issue_tracker": "https://github.com/tristansgray/ha-aqua-illumination-ble/issues",
   "requirements": [],
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

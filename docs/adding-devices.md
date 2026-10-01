@@ -42,4 +42,4 @@ Rules that kept a live reef tank safe while the Axis 40 was reverse-engineered:
 
 ## 4. Add it to the integration
 
-Open an issue or pull request with the decoded frames (not the raw log), your device's model string and firmware as shown by `tools/axis.py state`, and what you tested. Supported model/firmware pairs live in `TESTED` in `custom_components/aqua_illumination/__init__.py`.
+Open an issue or pull request with the decoded frames (not the raw log), your device's model string and firmware as shown by `tools/axis.py state`, and what you tested. Supported model/firmware pairs live in `TESTED` in `custom_components/aqua_illumination_ble/__init__.py`.

@@ -1,4 +1,4 @@
-# Aqua Illumination for Home Assistant
+# Aqua Illumination (Bluetooth) for Home Assistant
 
 Local Bluetooth control of Aqua Illumination (AI) aquarium devices. No cloud and no myAI app required.
 
@@ -28,13 +28,13 @@ Other devices that advertise as `MOBIUS` are discovered, but setup warns that th
 
 ### HACS
 
-1. HACS → ⋮ → **Custom repositories** → add `https://github.com/tristansgray/ha-aqua-illumination` as an **Integration**.
-2. Install **Aqua Illumination** and restart Home Assistant.
-3. Your device should be discovered automatically. If it isn't, go to Settings → Devices & services → Add integration → **Aqua Illumination**.
+1. HACS → ⋮ → **Custom repositories** → add `https://github.com/tristansgray/ha-aqua-illumination-ble` as an **Integration**.
+2. Install **Aqua Illumination (Bluetooth)** and restart Home Assistant.
+3. Your device should be discovered automatically. If it isn't, go to Settings → Devices & services → Add integration → **Aqua Illumination (Bluetooth)**.
 
 ### Manual
 
-Copy `custom_components/aqua_illumination` into your `config/custom_components/` folder and restart.
+Copy `custom_components/aqua_illumination_ble` into your `config/custom_components/` folder and restart.
 
 ## Tools
 

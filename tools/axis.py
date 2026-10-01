@@ -18,7 +18,7 @@ from pathlib import Path
 from bleak import BleakClient, BleakScanner
 
 # import the protocol module directly; the package __init__ needs Home Assistant
-sys.path.insert(0, str(Path(__file__).parent.parent / "custom_components" / "aqua_illumination"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "custom_components" / "aqua_illumination_ble"))
 from protocol import *  # noqa: E402,F403
 
 # name -> (payload, pass check(flow, rpm, rpm_before))

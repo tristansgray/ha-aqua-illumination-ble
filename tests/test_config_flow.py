@@ -6,10 +6,10 @@ from homeassistant.const import CONF_ADDRESS
 from homeassistant.data_entry_flow import FlowResultType
 import pytest
 
-from custom_components.aqua_illumination import DOMAIN
+from custom_components.aqua_illumination_ble import DOMAIN
 
 ADDR = "AA:BB:CC:DD:EE:FF"
-FLOW = "custom_components.aqua_illumination.config_flow"
+FLOW = "custom_components.aqua_illumination_ble.config_flow"
 
 
 class Info:  # stand-in for BluetoothServiceInfoBleak
@@ -29,7 +29,7 @@ async def _pick(hass, model, firmware):
     assert r["step_id"] == "user"
     info = {"manufacturer": "AI", "model": model, "firmware": firmware, "serial": "X"}
     with patch(f"{FLOW}.async_read_device_info", return_value=info), patch(
-        "custom_components.aqua_illumination.async_setup_entry", return_value=True
+        "custom_components.aqua_illumination_ble.async_setup_entry", return_value=True
     ):
         return await hass.config_entries.flow.async_configure(r["flow_id"], {CONF_ADDRESS: ADDR})
 
@@ -43,7 +43,7 @@ async def test_tested_device(hass):
 async def test_untested_device_requires_accept(hass):
     r = await _pick(hass, "Radion", "1.0.0")
     assert r["step_id"] == "untested"
-    with patch("custom_components.aqua_illumination.async_setup_entry", return_value=True):
+    with patch("custom_components.aqua_illumination_ble.async_setup_entry", return_value=True):
         r = await hass.config_entries.flow.async_configure(r["flow_id"], {"accept": False})
         assert r["errors"] == {"base": "must_accept"}
         r = await hass.config_entries.flow.async_configure(r["flow_id"], {"accept": True})
