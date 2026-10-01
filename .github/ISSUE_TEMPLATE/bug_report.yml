@@ -1,0 +1,72 @@
+name: Bug report
+description: Something isn't working with a supported device.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: check the myAI app is closed on every phone. The device takes one Bluetooth client at a time, and sensors are unavailable while the app is connected.
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+
+  - type: input
+    id: integration_version
+    attributes:
+      label: Integration version
+      description: From HACS, or `version` in the integration's manifest.json.
+      placeholder: 0.2.0
+    validations:
+      required: true
+
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+      description: Settings → About.
+      placeholder: 2026.9.4
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device, model and firmware
+      description: From the device's page in Home Assistant.
+      placeholder: "Axis 40, model Nero 5, firmware 2.3.15"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: bluetooth
+    attributes:
+      label: How Home Assistant reaches the device
+      options:
+        - ESPHome Bluetooth proxy
+        - Bluetooth adapter on the Home Assistant host
+        - Both
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Debug logs
+      description: |
+        Enable debug logging, reproduce the problem, then paste the relevant lines. Add this to `configuration.yaml` and restart:
+
+        ```yaml
+        logger:
+          logs:
+            custom_components.aqua_illumination_ble: debug
+        ```
+
+        Or: Settings → Devices & services → Aqua Illumination (Bluetooth) → ⋮ → Enable debug logging, then disable it to download the log.
+      render: text

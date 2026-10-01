@@ -43,6 +43,12 @@ Copy `custom_components/aqua_illumination_ble` into your `config/custom_componen
 
 Protocol notes: [docs/PROTOCOL.md](docs/PROTOCOL.md).
 
+## Help and contributing
+
+- **Want your device supported?** [Open a device request](https://github.com/tristansgray/ha-aqua-illumination-ble/issues/new?template=device_request.yml). No coding needed; [docs/adding-devices.md](docs/adding-devices.md) explains what to collect.
+- **Something broken?** [Open a bug report](https://github.com/tristansgray/ha-aqua-illumination-ble/issues/new?template=bug_report.yml).
+- **Want to contribute code?** See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## License
 
 MIT

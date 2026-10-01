@@ -13,6 +13,10 @@ from homeassistant.const import CONF_ADDRESS
 from . import DOMAIN, ERRORS, async_read_device_info, is_tested
 from .protocol import SERVICE
 
+REQUEST_URL = (
+    "https://github.com/tristansgray/ha-aqua-illumination-ble/issues/new?template=device_request.yml"
+)
+
 
 class AquaIlluminationConfigFlow(ConfigFlow, domain=DOMAIN):
     VERSION = 1
@@ -77,6 +81,7 @@ class AquaIlluminationConfigFlow(ConfigFlow, domain=DOMAIN):
             description_placeholders={
                 "model": self._data["model"],
                 "firmware": self._data["firmware"],
+                "request_url": REQUEST_URL,
             },
             errors=errors,
         )

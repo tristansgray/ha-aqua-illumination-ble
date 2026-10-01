@@ -1,0 +1,78 @@
+name: Device support request
+description: Ask for another Aqua Illumination device to be supported.
+title: "[Device]: "
+labels: ["device request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping add a device. Fill in what you can; **a request without a capture is still welcome.**
+        The full walk-through, including how to record a capture on Android, is in [docs/adding-devices.md](https://github.com/tristansgray/ha-aqua-illumination-ble/blob/main/docs/adding-devices.md).
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: The product name as sold.
+      placeholder: Nero 5 pump
+    validations:
+      required: true
+
+  - type: input
+    id: model_firmware
+    attributes:
+      label: Model and firmware reported over Bluetooth
+      description: >
+        Add the device in Home Assistant (it's flagged as untested; accept), then copy them from its device page.
+        Or run `uv run tools/axis.py state`. Leave blank if you don't know.
+      placeholder: "model: Nero 5, firmware: 2.3.15"
+
+  - type: textarea
+    id: features
+    attributes:
+      label: What should Home Assistant be able to do?
+      description: Sensors you'd like to see, and actions you'd like buttons or controls for.
+      placeholder: |
+        - show current flow / intensity
+        - Feed mode button
+        - switch to acclimation mode
+    validations:
+      required: true
+
+  - type: dropdown
+    id: capture
+    attributes:
+      label: Bluetooth capture
+      options:
+        - Decoded output pasted below (tools/snoop.py)
+        - I have a raw capture but couldn't decode it
+        - I can make a capture but need help
+        - I can't make a capture (no Android phone)
+    validations:
+      required: true
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: What you did in the myAI app
+      description: Each action in order, with the time you did it and your time zone. This is how commands in the capture get matched to buttons in the app.
+      placeholder: |
+        time zone: EDT
+        21:44  opened myAI, connected
+        21:45  Off
+        21:46  Resume schedule
+
+  - type: textarea
+    id: decoded
+    attributes:
+      label: Decoded capture
+      description: "Output of `python3 tools/snoop.py btsnoop_hci.log` (add `--reads` if you opened the device's status screen). This contains no addresses or serial numbers."
+      render: text
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: "I understand a raw `btsnoop_hci.log` contains my Bluetooth addresses and device serial number, and I haven't attached a whole bug report zip."
+          required: true
