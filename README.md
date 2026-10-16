@@ -51,4 +51,4 @@ Protocol notes: [docs/PROTOCOL.md](docs/PROTOCOL.md).
 
 ## License
 
-MIT
+MIT 2026
